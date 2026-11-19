@@ -1,17 +1,29 @@
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
     gap: 15px;
-    align-items: flex-start;
+    grid-template-areas: 
+    "esquerda principal direita"
+    "embaixo embaixo embaixo";
 }
-
-.coluna-lateral {
-    width: 25%;
+.coluna-esquerda {
+    grid-area: esquerda;
+    border: 2px solid black;
+    padding: 15px;
+}
+.coluna-direita {
+    grid-area: direita;
     border: 2px solid black;
     padding: 15px;
 }
 
 .coluna-principal {
-    width: 50%;
+    grid-area: principal;
+    border: 2px solid black;
+    padding: 15px;
+}
+.linha-embaixo{
+    grid-area: embaixo;
     border: 2px solid black;
     padding: 15px;
 }
@@ -24,3 +36,38 @@
     padding: 10px;
     margin-top: 10px;
 }
+.container-header{
+    display:flex
+
+}
+.login-button{
+margin-left: auto
+}
+
+#loginForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 450px;
+    margin: 40px auto;
+    border-radius: 10px;
+  }
+  
+  #senha-login,
+  #submitBtn {
+    grid-column: 1 / -1;
+  }
+  
+  #loginForm input {
+    width: 100%;
+    padding: 12px 14px;
+  }
+  
+  #submitBtn {
+    padding: 12px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
