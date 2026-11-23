@@ -1,47 +1,133 @@
-.container {
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    gap: 15px;
-    grid-template-areas: 
-    "esquerda principal direita"
-    "embaixo embaixo embaixo";
-}
-.coluna-esquerda {
-    grid-area: esquerda;
-    border: 2px solid black;
-    padding: 15px;
-}
-.coluna-direita {
-    grid-area: direita;
-    border: 2px solid black;
-    padding: 15px;
+.header-acoes {
+    display: flex;
+    gap: 10px;
 }
 
-.coluna-principal {
-    grid-area: principal;
-    border: 2px solid black;
-    padding: 15px;
+.login-button, .return-button {
+    background-color: #ffffff;
+    color: #111111;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: 2px solid #ffffff;
+    font-size: 0.9rem;
 }
-.linha-embaixo{
-    grid-area: embaixo;
-    border: 2px solid black;
-    padding: 15px;
+
+.login-button {
+    margin-left: auto;
+}
+
+.login-button:hover, .return-button:hover {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: #000000;
 }
 
 .item-jogo {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-decoration: none;
-    color: inherit;
-    border: 1px solid #999;
+    color: #111111;
+    background-color: #fafafa;
+    border: 2px solid #111111;
+    padding: 12px;
+    margin-top: 10px;
+    transition: background-color 0.15s;
+}
+
+.item-jogo:hover {
+    background-color: #fff8cc;
+}
+
+.badge-nota {
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 10px;
+    min-width: 36px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+.nota-verde {
+    background-color: #2e9e44;
+}
+
+.nota-amarela {
+    background-color: #e6a800;
+    color: #111111;
+}
+
+.nota-vermelha {
+    background-color: #d9383a;
+}
+
+.item-review {
+    background-color: #fafafa;
+    border: 1px solid #cccccc;
+    border-left: 4px solid #111111;
     padding: 10px;
     margin-top: 10px;
 }
-.container-header{
-    display:flex
 
+.item-review-recente {
+    display: block;
+    text-decoration: none;
+    color: #111111;
+    background-color: #fafafa;
+    border: 1px solid #cccccc;
+    border-left: 4px solid #111111;
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
-.login-button{
-margin-left: auto
+
+.item-review-recente:hover {
+    background-color: #fff8cc;
+}
+
+.estrelas {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.estrela {
+    position: relative;
+    display: inline-block;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: #cccccc;
+}
+
+.estrela.cheia {
+    color: #f5b400;
+}
+
+.estrela.meia::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #f5b400;
+}
+
+.status-logado {
+    background-color: #e8f7ec;
+    border: 1px solid #2e9e44;
+    color: #1b5e20;
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+.msg-aviso {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #b00020;
 }
 
 #loginForm {
@@ -51,23 +137,65 @@ margin-left: auto
     max-width: 450px;
     margin: 40px auto;
     border-radius: 10px;
-  }
-  
-  #senha-login,
-  #submitBtn {
+}
+
+#senha-login,
+#submitBtn {
     grid-column: 1 / -1;
-  }
-  
-  #loginForm input {
+}
+
+#loginForm input {
     width: 100%;
     padding: 12px 14px;
-  }
-  
-  #submitBtn {
+}
+
+#submitBtn {
     padding: 12px;
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-  }
-  
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 15px;
+    padding: 0 20px;
+    align-items: start;
+    grid-template-areas:
+        "esquerda principal direita"
+        "embaixo embaixo embaixo";
+}
+
+.coluna-esquerda {
+    grid-area: esquerda;
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    padding: 15px;
+}
+
+.coluna-direita {
+    grid-area: direita;
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    padding: 15px;
+}
+
+.coluna-principal {
+    grid-area: principal;
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    padding: 20px;
+}
+
+.linha-embaixo {
+    grid-area: embaixo;
+}
+
+.bloco-separado {
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    padding: 15px 20px;
+    margin: 20px 20px 0 20px;
+}

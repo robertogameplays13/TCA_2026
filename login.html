@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Metida critica</title>
+    <title>Criar Conta - Metida Crítica</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-
-<header>
-    <h1>Metida Crítica</h1>
-    <!--quando colocar a imagem da logo fazer ela voltar pra pagina inicial-->
-    <a href="index.html" class="return-button">← Retornar</a>
-</header>
 <body>
-    <main>
-        <form id="loginForm">    
-            <input type="text" id="name-login" placeholder="Nome da conta" required>
-            <input type="email" id="email-login" placeholder="Seu Email" required>
-            <input type="password" id="senha-login" placeholder="Sua senha" required>
-            <button type="submit" id="submitBtn">Sign in</button>
-        </form>
+
+    <header class="container-header">
+        <h1>METIDA CRÍTICA</h1>
+        <a href="index.html" class="return-button">← Retornar</a>
+    </header>
+
+    <main class="container">
+        <section class="coluna-principal">
+            <h2>Criar conta</h2>
+            <form id="loginForm">
+                <input type="text" id="name-login" placeholder="Nome da conta" required>
+                <input type="email" id="email-login" placeholder="Seu Email" required>
+                <input type="password" id="senha-login" placeholder="Sua senha" required>
+                <button type="submit" id="submitBtn">Cadastrar</button>
+            </form>
+            <p id="mensagem-login" class="msg-aviso"></p>
+        </section>
     </main>
+
+    <footer>
+        <p>Metida Crítica</p>
+    </footer>
+
+    <script src="js/login.js"></script>
 </body>
-<footer></footer>
-<script src="js/login.js"></script>
 </html>

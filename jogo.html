@@ -10,33 +10,57 @@
 <body>
 
     <header class="container-header">
-        <h1>Metida Crítica</h1> 
-<!--quando colocar a imagem da logo fazer ela voltar pra pagina inicial-->
-<a href="index.html" class="return-button">← Retornar</a>
-        <a href="login.html" class="login-button">Sign Up/Sign In</a>
+        <h1>METIDA CRÍTICA</h1>
+        <div class="header-acoes">
+            <a href="index.html" class="return-button">← Retornar</a>
+            <a href="login.html" class="login-button">Criar Conta</a>
+        </div>
     </header>
 
     <main class="container">
         <aside class="coluna-esquerda">
-            <h3>1</h3>
+            <h3>Desenvolvedora</h3>
+            <div id="dados-empresa">Carregando...</div>
         </aside>
 
         <section class="coluna-principal">
             <div id="detalhes-jogo">Carregando...</div>
         </section>
-        <aside class="coluna-direita">
-            <h3>2</h3>
-        </aside>
-        <section class="linha-embaixo">
-            <h3>reviews</h3>
-            <div class="lista-reviews">
 
-            </div>
-        </section>
+        <aside class="coluna-direita">
+            <h3>Reviews Recentes</h3>
+            <div id="reviews-recentes">Carregando...</div>
+        </aside>
     </main>
+
+    <section class="bloco-separado linha-embaixo">
+        <h3>Avaliar este jogo</h3>
+
+        <form id="loginReviewForm">
+            <p class="texto-suave">Entre com sua conta para avaliar (ou <a href="login.html">crie uma aqui</a>):</p>
+            <input type="email" id="email-review" placeholder="Seu Email" required>
+            <input type="password" id="senha-review" placeholder="Sua Senha" required>
+            <button type="submit">Entrar para Avaliar</button>
+            <p id="msg-login-review" class="msg-aviso"></p>
+        </form>
+
+        <form id="reviewForm" style="display: none;">
+            <p id="usuario-logado-texto" class="status-logado"></p>
+            <input type="number" id="nota-review" min="0" max="10" placeholder="Nota (0 a 10)" required>
+            <textarea id="conteudo-review" rows="3" placeholder="Escreva sua review..." required></textarea>
+            <button type="submit">Publicar Review</button>
+        </form>
+    </section>
+
+    <section class="bloco-separado linha-embaixo">
+        <h3>Reviews da Galera</h3>
+        <div class="lista-reviews" id="lista-reviews">Carregando reviews...</div>
+    </section>
+
     <footer>
-        <p>Rodapé</p>
+        <p>Metida Crítica</p>
     </footer>
+
     <script src="js/jogo.js"></script>
 </body>
 </html>

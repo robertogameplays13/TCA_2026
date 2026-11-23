@@ -1,20 +1,21 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.container-header, footer {
+    background-color: #111111;
+    color: #ffffff;
+    border: 2px solid #000000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-body {
-    padding: 20px;
-}
-
-header, footer {
-    border: 2px solid black;
-    padding: 15px;
+.container-header {
+    width: 100%;
     margin-bottom: 20px;
 }
 
 footer {
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin: 20px;
+    font-size: 0.9rem;
 }
+
+
