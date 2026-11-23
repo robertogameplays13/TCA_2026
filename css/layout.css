@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .container-header {
@@ -14,8 +16,18 @@
 }
 
 footer {
-    margin: 20px;
-    font-size: 0.9rem;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
 }
 
+@media (max-width: 600px) {
+    .container-header {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .container-header img {
+        width: 180px;
+    }
+}

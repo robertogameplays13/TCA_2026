@@ -1,6 +1,7 @@
 .header-acoes {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .login-button, .return-button {
@@ -11,6 +12,7 @@
     padding: 8px 14px;
     border: 2px solid #ffffff;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .login-button {
@@ -27,6 +29,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     text-decoration: none;
     color: #111111;
     background-color: #fafafa;
@@ -47,20 +50,12 @@
     min-width: 36px;
     text-align: center;
     border: 1px solid #000000;
+    flex-shrink: 0; /* Impede a nota de amassar se o nome do jogo for grande */
 }
 
-.nota-verde {
-    background-color: #2e9e44;
-}
-
-.nota-amarela {
-    background-color: #e6a800;
-    color: #111111;
-}
-
-.nota-vermelha {
-    background-color: #d9383a;
-}
+.nota-verde { background-color: #2e9e44; }
+.nota-amarela { background-color: #e6a800; color: #111111; }
+.nota-vermelha { background-color: #d9383a; }
 
 .item-review {
     background-color: #fafafa;
@@ -68,6 +63,7 @@
     border-left: 4px solid #111111;
     padding: 10px;
     margin-top: 10px;
+    word-wrap: break-word; /* Evita que textos longos quebrem o layout */
 }
 
 .item-review-recente {
@@ -80,6 +76,7 @@
     padding: 8px;
     margin-top: 10px;
     font-size: 0.9rem;
+    word-wrap: break-word;
 }
 
 .item-review-recente:hover {
@@ -102,9 +99,7 @@
     color: #cccccc;
 }
 
-.estrela.cheia {
-    color: #f5b400;
-}
+.estrela.cheia { color: #f5b400; }
 
 .estrela.meia::before {
     content: '★';
@@ -130,13 +125,13 @@
     color: #b00020;
 }
 
+/* Formulário de Login */
 #loginForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     max-width: 450px;
-    margin: 40px auto;
-    border-radius: 10px;
+    margin: 20px auto;
 }
 
 #senha-login,
@@ -157,15 +152,31 @@
     cursor: pointer;
 }
 
+/* Grid Principal (Desktop) */
 .container {
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 220px 1fr 220px;
     gap: 15px;
     padding: 0 20px;
     align-items: start;
     grid-template-areas:
         "esquerda principal direita"
         "embaixo embaixo embaixo";
+}
+
+/* Ajuste para páginas sem coluna esquerda (index.html e login.html) */
+.container:not(:has(.coluna-esquerda)) {
+    grid-template-columns: 1fr 250px;
+    grid-template-areas:
+        "principal direita"
+        "embaixo embaixo";
+}
+
+.container:not(:has(.coluna-esquerda)):not(:has(.coluna-direita)) {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+    grid-template-areas: "principal";
 }
 
 .coluna-esquerda {
@@ -198,4 +209,63 @@
     border: 2px solid #111111;
     padding: 15px 20px;
     margin: 20px 20px 0 20px;
+}
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "principal principal"
+            "esquerda direita"
+            "embaixo embaixo";
+    }
+
+    .container:not(:has(.coluna-esquerda)) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "principal"
+            "direita"
+            "embaixo";
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .login-button {
+        margin-left: 0;
+    }
+
+    .header-acoes {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-acoes a, 
+    .container-header > .login-button {
+        flex: 1;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+        grid-template-areas:
+            "principal"
+            "esquerda"
+            "direita"
+            "embaixo";
+    }
+
+    .coluna-principal,
+    .coluna-esquerda,
+    .coluna-direita {
+        padding: 15px;
+    }
+
+    .bloco-separado {
+        margin: 15px 12px 0 12px;
+        padding: 15px;
+    }
+    #loginForm {
+        grid-template-columns: 1fr;
+        margin: 10px auto;
+    }
 }
